@@ -1,0 +1,176 @@
+C:/Users/user/Desktop/Cache_Files/SRAM.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/SRAM.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module SRAM
+
+Top level modules:
+	SRAM
+
+} {} {}} C:/Users/user/Desktop/Cache_Files/MemAccessStage.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/MemAccessStage.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module MemAccessStage
+
+Top level modules:
+	MemAccessStage
+
+} {} {}} C:/Users/user/Desktop/Cache_Files/SRAM_Controller.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/SRAM_Controller.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module SRAM_Controller
+
+Top level modules:
+	SRAM_Controller
+
+} {} {}} C:/Users/user/Desktop/Cache_Files/FetchStage.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/FetchStage.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module FetchStage
+
+Top level modules:
+	FetchStage
+
+} {} {}} C:/Users/user/Desktop/Cache_Files/arm.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/ARM.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module arm
+
+Top level modules:
+	arm
+
+} {} {}} C:/Users/user/Desktop/Cache_Files/status_reg.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/status_reg.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module status_reg
+
+Top level modules:
+	status_reg
+
+} {} {}} C:/Users/user/Desktop/Cache_Files/HazardDetectionUnit.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/HazardDetectionUnit.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module HazardDetectionUnit
+
+Top level modules:
+	HazardDetectionUnit
+
+} {} {}} C:/Users/user/Desktop/Cache_Files/ControlUnit.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/ControlUnit.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module ControlUnit
+
+Top level modules:
+	ControlUnit
+
+} {} {}} C:/Users/user/Desktop/Cache_Files/ExecuteReg.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/ExecuteReg.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module ExecuteReg
+
+Top level modules:
+	ExecuteReg
+
+} {} {}} C:/Users/user/Desktop/Cache_Files/DecodeReg.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/DecodeReg.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module DecodeReg
+
+Top level modules:
+	DecodeReg
+
+} {} {}} C:/Users/user/Desktop/Cache_Files/adder_addr.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/adder_addr.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module adder_addr
+
+Top level modules:
+	adder_addr
+
+} {} {}} C:/Users/user/Desktop/Cache_Files/ALU.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/ALU.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} C:/Users/user/Desktop/Cache_Files/Data_Memory.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/Data_Memory.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Data_Memory
+
+Top level modules:
+	Data_Memory
+
+} {} {}} C:/Users/user/Desktop/Cache_Files/ForwardingUnit.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/ForwardingUnit.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module ForwardingUnit
+
+Top level modules:
+	ForwardingUnit
+
+} {} {}} C:/Users/user/Desktop/Cache_Files/Condition_Check.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/Condition_Check.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Condition_Check
+
+Top level modules:
+	Condition_Check
+
+} {} {}} C:/Users/user/Desktop/Cache_Files/FreqDivider.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/FreqDivider.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module FreqDivider
+
+Top level modules:
+	FreqDivider
+
+} {} {}} C:/Users/user/Desktop/Cache_Files/RegisterFile.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/RegisterFile.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module RegisterFile
+
+Top level modules:
+	RegisterFile
+
+} {} {}} C:/Users/user/Desktop/Cache_Files/Val2_Gen.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/Val2_Gen.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Val2_Gen
+
+Top level modules:
+	Val2_Gen
+
+} {} {}} C:/Users/user/Desktop/Cache_Files/ExecuteStage.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/ExecuteStage.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module ExecuteStage
+
+Top level modules:
+	ExecuteStage
+
+} {} {}} C:/Users/user/Desktop/Cache_Files/cache_controller.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/cache_controller.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module cache_controller
+
+Top level modules:
+	cache_controller
+
+} {} {}} C:/Users/user/Desktop/Cache_Files/MemAccessReg.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/MemAccessReg.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module MemAccessReg
+
+Top level modules:
+	MemAccessReg
+
+} {} {}} C:/Users/user/Desktop/Cache_Files/FetchReg.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/FetchReg.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module FetchReg
+
+Top level modules:
+	FetchReg
+
+} {} {}} C:/Users/user/Desktop/Cache_Files/DecodeStage.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/DecodeStage.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module DecodeStage
+
+Top level modules:
+	DecodeStage
+
+} {} {}} C:/Users/user/Desktop/Cache_Files/TestBench.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/TestBench.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module testbench
+
+Top level modules:
+	testbench
+
+} {} {}} C:/Users/user/Desktop/Cache_Files/WriteBackStage.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/Cache_Files/WriteBackStage.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module WriteBackStage
+
+Top level modules:
+	WriteBackStage
+
+} {} {}}

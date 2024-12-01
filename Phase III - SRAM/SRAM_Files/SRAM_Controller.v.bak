@@ -1,0 +1,56 @@
+/*module SRAM_Controller(clk, rst, write_en_mem, read_en_mem, SRAM_address_in, write_data, read_data, ready, SRAM_DQ, 
+		       SRAM_ADDR, SRAM_UB_N, SRAM_LB_N, SRAM_WE_N, SRAM_CE_N, SRAM_OE_N);
+  input clk, rst;
+  //From Mem stage
+  input write_en_mem, read_en_mem;
+  input [31:0] SRAM_address_in, write_data;
+  //To next stage
+  output reg [31:0] read_data;
+  //for freeze other stages
+  output reg ready;
+
+  inout [15:0] SRAM_DQ;
+  output reg [17:0] SRAM_ADDR;
+  output reg SRAM_UB_N, SRAM_LB_N, SRAM_WE_N, SRAM_CE_N, SRAM_OE_N;
+
+  /*parameter [3:0]
+  Idle = 4'b0000, low_wr = 4'b0001, high_wr = 4'b0010, write_finish = 4'b0011, write_wait1 = 4'b0100, write_wait2 = 4'b0101,
+                  low_addr = 4'b0110, high_addr = 4'b0111, read_finish = 4'b1000, read_wait1 = 4'b1001, read_wait2 = 4'b1010;
+				  
+  reg [3:0] ps, ns;
+  reg [15:0] data_temp;
+
+  always@(ps, write_en_mem)begin
+    ns = Idle;
+    data_temp = 16'bz;
+    {SRAM_UB_N, SRAM_LB_N, SRAM_WE_N, SRAM_CE_N, SRAM_OE_N} = 5'b00100;
+    ready = 1'b0;
+    case(ps)
+       Idle: ns = (write_en_mem == 1'b0) ? low_addr : low_wr;  
+       //Write data to SRAM
+       low_wr: begin ns = high_wr; SRAM_ADDR = (SRAM_address_in[17:0]- 32'd1024 >> 1); data_temp = write_data[15:0]; SRAM_WE_N = 1'b0; end
+       high_wr: begin ns = write_finish; SRAM_ADDR = (SRAM_address_in[17:0] + 1'b1- 32'd1024 >> 1); data_temp = write_data[31:16]; SRAM_WE_N = 1'b0; end
+       write_finish: ns = write_wait1;
+       write_wait1: ns = write_wait2;
+       write_wait2: begin ns = Idle; ready = 1'b1; end
+       //Read data from SRAM
+       low_addr: begin ns = high_addr; SRAM_ADDR = (SRAM_address_in[17:0] - 32'd1024 >> 1); end
+       high_addr: begin ns = read_finish; read_data[15:0] = data_temp; SRAM_ADDR = (SRAM_address_in[17:0] - 32'd1024 >> 1); end
+       read_finish: begin ns = read_wait1; SRAM_ADDR = (SRAM_address_in[17:0] + 1'b1- 32'd1024 >> 1); end
+       read_wait1: begin ns = read_wait2;  read_data[31:16] = data_temp; SRAM_ADDR = (SRAM_address_in[17:0] + 1'b1 - 32'd1024 >> 1); end
+       read_wait2: begin ns = Idle; ready = 1'b1; end
+       default: ns = Idle;
+    endcase
+  end
+
+  always@(posedge clk)begin
+    if(rst)
+      ps <= Idle;
+    else 
+      ps <= ns;
+  end
+  
+  assign SRAM_DQ = ((ps == low_wr)|(ps == high_wr)|(ps == high_addr)|(ps == read_wait1)) ? data_temp : 16'bz;
+  //assign SRAM_DQ = 16'bz;*/
+  
+  module SRAM_Controller (clk, rst, SRAM_WE_N, writeEn, readEn, address, WriteData, ReadData, ready, SRAM_DQ, SRAM_ADDR);    input clk, rst;    input writeEn, readEn;    input [31:0] address, WriteData;    output [31:0] ReadData;    output reg SRAM_WE_N;    output ready;    inout [15:0] SRAM_DQ;    output reg [17:0] SRAM_ADDR;    parameter [3:0] idle = 0, w1 = 1, w2 = 2, r1 = 3, r2 = 4, r3 = 5, r4 = 6, r5 = 7;    reg [3:0] ns, ps;    reg [15:0] readLSB, readMSB;    always @* begin : next_state        ns = idle;        case (ps)            idle: begin                if (writeEn & readEn)                    ns = idle;                else if (writeEn)                    ns = w1;                else                    ns = r1;            end            w1: ns = w2;            w2: ns = idle;            r1: ns = r2;            r2: ns = r3;            r3: ns = r4;            r4: ns = r5;            r5: ns = idle;        endcase    end    always @(ps) begin : signals        SRAM_ADDR = 18'b0; SRAM_WE_N = 1'b1;        case (ps)            w1: begin                SRAM_ADDR = {address[18:2], 1'b0};                SRAM_WE_N = 1'b0;            end            w2: begin                SRAM_ADDR = {address[18:2], 1'b1};                SRAM_WE_N = 1'b0;            end            r1: begin                SRAM_ADDR = {address[18:2], 1'b0};            end            r2: begin                SRAM_ADDR = {address[18:2], 1'b0};                readLSB = SRAM_DQ;            end            r3: begin                SRAM_ADDR = {address[18:2], 1'b1};                // readLSB = SRAM_DQ;            end            r4: begin                SRAM_ADDR = {address[18:2], 1'b1};                readMSB = SRAM_DQ;            end            r5: begin                // readMSB = SRAM_DQ;            end        endcase    end    always @(posedge clk, posedge rst) begin        if (rst)            ps <= idle;        else            ps <= ns;    end    assign SRAM_DQ = (ps == w1) ? WriteData[15:0]:                (ps == w2) ? WriteData[31:16]:16'bz;                    assign ready = (ns == idle) ? 1'b1:1'b0;    // assign ready = (writeEn | readEn) ? 1'b1:1'b0;    assign ReadData = (ps == r5) ? {readMSB, readLSB}:32'bz;endmodule

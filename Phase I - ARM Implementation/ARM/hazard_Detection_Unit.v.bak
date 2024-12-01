@@ -1,0 +1,35 @@
+module hazard_Detection_Unit(src1_id, src2_id, Exe_Dest, Exe_WB_EN, move_id, Mem_Dest,
+			     Mem_WB_EN, Two_src_id, hazard);
+  input [3:0] src1_id, src2_id;
+  input [3:0] Exe_Dest;
+  input Exe_WB_EN, move_id;
+  input [3:0] Mem_Dest;
+  input Mem_WB_EN;
+  input Two_src_id;
+  output reg hazard;
+
+  always@(src1_id, src2_id, Exe_Dest, Exe_WB_EN, Mem_Dest, Mem_WB_EN, Two_src_id, move_id)begin
+    hazard = 1'b0;
+    if(Two_src_id)
+      if((Exe_Dest == src2_id & Exe_WB_EN) | (Mem_Dest == src2_id & Mem_WB_EN))
+	hazard = 1'b1;
+    if(~move_id)
+      if((Exe_Dest == src1_id & Exe_WB_EN) | (Mem_Dest == src1_id & Mem_WB_EN))
+	hazard = 1'b1;
+  end
+
+   /*always @* begin
+        hazard = 1'b0;
+        if (Two_src_id)
+            if((Exe_Dest == src2_id & Exe_WB_EN) | (Mem_Dest == src2_id & Mem_WB_EN))
+                hazard = 1'b1;
+        if (~move_id)
+            if ((Exe_Dest == src1_id & Exe_WB_EN) | (Mem_Dest == src1_id & Mem_WB_EN))
+                hazard = 1'b1;
+    end*/
+
+  /*assign hazard_Detected = (Exe_Dest == src1 && Exe_WB_EN == 1'b1) ||
+			   (Mem_Dest == src1 && Mem_WB_EN == 1'b1) ||
+			   (Exe_Dest == src2 && Exe_WB_EN == 1'b1 && Two_src == 1'b1) ||
+			   (Mem_Dest == src2 && Mem_WB_EN == 1'b1 && Two_src == 1'b1) ? 1 : 0;*/
+endmodule

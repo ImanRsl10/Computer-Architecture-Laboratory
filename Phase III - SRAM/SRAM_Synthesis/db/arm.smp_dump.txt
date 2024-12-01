@@ -1,0 +1,11 @@
+
+State Machine - |arm|ARM:ARM_test|MEM_stage:MEM|SRAM_Controller:SRAM_CU|ps
+Name ps.wait2 ps.wait1 ps.read3 ps.read2 ps.read1 ps.write2 ps.write1 ps.Idle 
+ps.Idle 0 0 0 0 0 0 0 0 
+ps.write1 0 0 0 0 0 0 1 1 
+ps.write2 0 0 0 0 0 1 0 1 
+ps.read1 0 0 0 0 1 0 0 1 
+ps.read2 0 0 0 1 0 0 0 1 
+ps.read3 0 0 1 0 0 0 0 1 
+ps.wait1 0 1 0 0 0 0 0 1 
+ps.wait2 1 0 0 0 0 0 0 1 
